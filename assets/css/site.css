@@ -1,0 +1,16 @@
+.border-fix {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.alert-spinner {
+    height: 40px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.del-btn {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}

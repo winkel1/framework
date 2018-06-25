@@ -1,0 +1,6 @@
+RewriteEngine On
+
+
+RewriteRule ^(controllers/|models/|views/|base/) - [F,L,NC]
+
+RewriteRule . index.php
