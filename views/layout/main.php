@@ -32,6 +32,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="<?= Smts::$config['BaseUrl'] ?>users"><?= Smts::t('smts', 'users') ?></a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?= Smts::$config['BaseUrl'] ?>test">test</a>
+						</li>
 					</ul>
 
 					<ul class="navbar-nav ml-auto">
@@ -73,7 +76,7 @@
 		</nav>
 
 		<div class="container">
-		
+
 			<?php require_once(__dir__.'/../'.$view); ?>
 
 		</div>

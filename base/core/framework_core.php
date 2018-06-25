@@ -6,7 +6,7 @@
         public static $config = [];
 
         public static function Flash( $msg = [] ) {
-
+            
             if ( is_array($msg) && sizeof($msg) > 0 ) {
                 $flip = array_flip($msg);
                 $key = array_pop($flip);
@@ -17,7 +17,7 @@
                 if ( isset( self::$session['flash'] ) ) {
                     $res = self::$session['flash'];
                     unset( self::$session['flash'] );
-
+    
                     return $res;
                 } else {
                     return false;
@@ -75,7 +75,7 @@
                 ini_set( "display_errors", "off" );
                 error_reporting( E_ALL );
             }
-
+            
         }
 
         protected static function GetPath() {
@@ -86,9 +86,9 @@
 
             if ( isset($var[0]) && in_array($var[0], $modules) ) {
                 $Module = array_shift( $var );
-
+                
                 require 'modules/'.$Module.'/'.$Module.'.php';
-                //ucfirst($Module)::Init($var);exit;
+                ucfirst($Module)::Init($var);exit;
             }
 
             $defaultPath = explode( '/', array_pop( self::$config['RewriteRules'] ) );
@@ -100,25 +100,25 @@
                 $url['params'] = [];
 
             } else {
-
+                
                 $urls = self::$config['RewriteRules'];
 
                 foreach ( $var as $varKey => $varValue ) {
                     foreach ( $urls as $urlKey => $urlValue ) {
                         $urlSection = explode( '/', $urlKey )[ $varKey ];
-                        if (
+                        if ( 
                             (
                                 ( mb_substr( $urlSection, 0, 1 ) != '[' || mb_substr( $urlSection, -1 ) != ']' ) &&
-                                ( $urlSection != $varValue )
-                            ) ||
+                                ( $urlSection != $varValue ) 
+                            ) || 
                             empty( $varValue ) ||
-                            sizeof( explode( '/', $urlKey ) ) != sizeof( $var )
+                            sizeof( explode( '/', $urlKey ) ) != sizeof( $var )   
                         ) {
                             unset( $urls[ $urlKey ] );
                         }
                     }
                 }
-
+                
                 $dataToFillIn = $var;
 
                 $fillInStructureSliced = array_slice(array_flip($urls), 0, 1);
@@ -139,7 +139,7 @@
                 $url['controller'] = array_pop( $pathToBeFilledIn );
                 $url['action'] = array_pop( $pathToBeFilledIn );
                 $url['params'] = [];
-
+                
                 $i = 0;
                 foreach ( array_reverse($fillInStructure) as $fillInStructureValue ) {
                     if ( mb_substr( $fillInStructureValue, 0, 1 ) == '[' || mb_substr( $fillInStructureValue, -1 ) == ']' ) {
@@ -157,7 +157,7 @@
         }
 
         protected static function RouteRequest( $url ) {
-
+            
             $controllers = array_diff(scandir("./controllers"), ['..', '.']);
 
             if ( in_array( ( $url['controller'].'_controller.php'), $controllers ) ) {

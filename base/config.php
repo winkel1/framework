@@ -3,6 +3,8 @@
 
         'RewriteRules' => [
 
+            'test' => 'pages/test',
+            
             'login' => 'users/login',
 
             '[controller]' => '[controller]/overview',
@@ -22,14 +24,14 @@
 
         'ErrorViewLocation' => 'pages/error',
 
-        'DefaultTitle' => 'winkels',
+        'DefaultTitle' => 'pagina',
         'DefaultProfilePic' => 'assets/user.png',
 
 
         'Env' => 'Dev',
 
         'Live' => [
-            'BaseUrl' => 'http://localhost/framework/',
+            'BaseUrl' => 'http://localhost/framework',
 
             'DataBaseName' => "--",
             'DataBaseUser' => '--',

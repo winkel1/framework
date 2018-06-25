@@ -10,4 +10,9 @@
 
         }
 
+      public static function test(){
+        self::$title = 'test';
+        smts::Render('pages/test');
+      }
+
     }

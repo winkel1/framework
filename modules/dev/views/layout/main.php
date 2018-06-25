@@ -26,7 +26,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container">
-				<a class="navbar-brand" href="<?= Smts::$config['BaseUrl'] ?>">SMTS_Base</a>
+				<a class="navbar-brand" href="<?= Smts::$config['BaseUrl'] ?>">Base</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -44,7 +44,7 @@
 		</nav>
 
 		<div class="container">
-		
+
 			<?php require_once(__dir__.'/../'.$view); ?>
 
 		</div>
